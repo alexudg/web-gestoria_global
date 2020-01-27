@@ -1,0 +1,381 @@
+/*:root{/* declaracion de variables */
+    
+/*}*/
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;	
+    /*border: 0.1px solid;/**/
+}
+
+/*html{
+    scroll-behavior: smooth; 
+}*/
+
+header{
+    background-color: #ddd;
+	height: 75px; /* falta agregar 3px de sombra */
+    display: flex; /* hijos alineados en misma fila y auto-ajustados */  
+    position: fixed; /* fijar (se recarga a left-top) y se auto-ajusta */
+    width: 100%; /* obligar a que abarque toda anchura */
+    top: 0; /* obligarlo que se pegue totalmente al techo */
+    box-shadow: 3px 3px 5px silver;
+    z-index: 1; /* capa superior sobre el slider */
+}
+
+#idLogo{
+    /*background-color: #EEE;*/
+    width: 33%;
+    display: flex;
+    justify-content: center; /* centrado horizontal */
+    align-items: center; /* centrado vertical */
+}
+
+#idLogo img{
+    width: 100%; /* 100% de su padre <a> */
+    margin-top: 5px;
+}
+
+nav{
+    /*background-color: #555;*/
+    width: 67%;
+    display: flex;
+    justify-content: center; /* centrado horizontal */
+    align-items: center; /* centrado vertical */
+}
+
+nav ul{
+    /*background-color: black;*/
+    list-style: none; /* quitar viñetas */
+    margin: 0; /* quitar margen top-bot */
+    padding: 0; /* quitar sangria izq */
+    display: flex; /* alineado en fila y auto-ajusta los hijos */
+}
+
+.clBotones{
+    background-color: dodgerblue;
+    display: flex; /* permite manipular dimensiones y alineaciones */
+    width: 175px;
+    height: 35px;
+    justify-content: center; /* centrado horizontal */
+    align-items: center; /* centrado vertical */
+    color: white;
+    margin: 0 5px;
+    border-radius: 10px 10px;
+    box-shadow: 3px 3px 3px #333;
+    transition: 0.2s ease-in-out;    
+}
+
+.clBotones:hover{
+    cursor: pointer;
+    background-color: cadetblue;
+}
+
+.clBotones:active{
+    box-shadow: none;
+}
+
+#idSuperior{
+    background-image: url(src/logo/logoCompleto1280x309.png); /* imagen de fondo */
+    background-size: contain; /* ajustarla a lo ancho */
+    background-repeat: no-repeat; /* no repetirla */
+    background-position: center; /* centrada */
+    background-color: black;
+    height: 100vh; /* espacio vacio que sera utilizado para esconder una seccion para despues mostrar la que el usuario dio click en el menu sin que éste oculte la parte superior */    
+}
+
+section:not(#idSuperior){ /* todas las secciones excepto la superior */
+    margin: 0 5%;
+}
+
+section h1{
+    margin-top: 100px;
+    font-size: 24pt;
+}
+
+section p{
+    font-size: 16pt;    
+}
+
+#idSlider{
+    width: 90%;
+    max-width: 1024px;
+    height: 30vw;
+    max-height: 300px;
+    border: 1px solid;
+    margin: 20px auto; /* centrarlo */
+    overflow: hidden; 
+}
+
+#idSlider figure{
+    width: 400%; /* 4 imagenes (3 diferentes y ultima repetiendo la 1ra para viciar)  */
+    height: 100%;
+    position: relative; /* importante para que actue el movimiento de @keyframes */
+	/*margin: 0;*/
+	/*left: 0;*/
+
+	animation: 16s animacion infinite; /* animacion llamada 'animacion' de 16s en total sin parar */
+}
+
+#idSlider figure img{
+    width: 25%;
+    height: 100%;
+    float: left; /* importante siempre pegada junto a la imagen de su izq */
+    /* centrar sin estirar */
+    object-fit: cover;
+   
+}
+
+#idInicio h2{
+    text-align: center;
+}
+
+#idInicio ul{
+    color: darkblue;
+    text-shadow: 1px 1px 1px gray;
+    font-size: 20px;
+    margin: 20px;
+}
+
+article{ /* seccion de tarjetas */
+    background-color: gray;
+    display: block;
+}
+
+.clLeft, .clCenter, .clRight{ /* cajas de las tarjetas */
+    /*background-color: silver;/**/
+    width: 33.33%; /* diseño > 1023 */
+    float: left;
+    display: flex; /* se ajusta al contenido*/
+    justify-content: center; /* centrado horizontal*/
+    margin-bottom: 15px;
+}
+
+.clTarjeta{
+    /*background-color: white;/**/
+    width: 280px;
+    height: 300px;
+    text-align: center; /* texto de los hijos (.clTitulo/DescripcionTarjeta) */
+    padding: 8px;
+    box-shadow: 3px 3px 5px 5px lightgray;
+}
+
+.clTituloTarjeta{ 
+    font-size: 14pt;
+    margin: 8px;
+    font-weight: bold;
+}
+
+.clImagenTarjeta{
+    width: 100%; /* ancho de su padre (.clTarjeta) */
+    margin: 0;
+    height: 180px;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+#idServicios figure{
+    display: flex;
+    padding: 20px;
+}
+
+.clNon{
+    background-color: #ddd;
+}
+
+.clPar{
+    background-color: cadetblue;
+}
+
+.clPar{
+    justify-content: flex-end;
+}
+
+#idServicios figure img{
+    max-width: 550px;  
+}
+
+#idLicencia{
+    position: relative;
+    top: 40px;
+    left: 420px; 
+    width: 260px;
+    height: 50px;
+    background-color: yellowgreen;
+    border-radius: 10px;
+    font-family: verdana;
+    box-shadow: 1px 1px 1px gray;
+}
+
+#idWebValidacion, #idWebAdeudo{
+    margin: 25px 0;
+    text-align: center;
+}
+
+#idWebValidacion iframe, #idWebAdeudo iframe{
+    width: 100%;
+    height: 100vh;
+}
+
+#idDatosContacto{
+    text-align: center;
+}
+
+#idDatosContacto h3{
+    margin: 20px 0;
+}
+
+#idDatosContacto img{ /* logo whatsapp */
+    margin-bottom: -5px; /* bajar un poco el logo de whatsapp */
+}
+
+#idMapa{
+    text-align: center;
+    height: 60vw;
+}
+
+#idContacto iframe{
+    box-shadow: 3px 3px 3px 3px silver;
+    width: 90%;
+    height: 90%;
+}
+
+form{
+    width: 450px;
+    margin: 20px auto; /* centrar formulario de contacto */
+    background: #A2BCD7;
+    padding: 10px 28px;
+    border-radius: 10px;
+}
+
+form h2{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+form p{
+    font-size: 14px;
+}
+
+input, textarea{
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 5px;
+    border: none;
+}
+
+textarea{ /* evitar que el usuario lo deforme */
+    min-height: 100px;
+    max-height: 200px;
+    min-width: 100%;
+    max-width: 100%;    
+}
+
+#idEnviar{
+    background-color: darkslateblue;
+    color: white;
+    font-size: 20px;
+    padding: 10px;
+    box-shadow: 2px 2px 2px 2px gray;
+}
+
+#idEnviar:hover{
+    cursor: pointer;
+    background-color: darkcyan;
+}
+
+#idEnviar:active{
+    box-shadow: none;
+}
+
+#idFacebook{
+    position: fixed;
+    left: 35px;
+    bottom: 30px;
+}
+
+#idWhatsapp{
+    position: fixed;
+    right: 35px;
+    bottom: 30px;
+}
+
+footer{
+    background-color: cadetblue;
+    height: 100px;
+    text-align: center;
+    color: white;
+    padding-top: 20px; /* empujar parrafos hacia abajo para que el logo de facebook no cubra nada de el */
+    text-shadow: 1px 1px 1px black;
+    clear: both; /* no permite que floten sobre el */
+}
+
+footer p{
+    margin: 0 10%;
+}
+
+@media screen and (max-width: 1023px){
+    #logo a{
+        width: 24vw;
+    }
+    .clBotones{
+        width: 17vw;
+        font-size: 12pt;
+    }
+    .clLeft, .clCenter{ /* tarjetas: 2 arriba */
+        width: 50%; 
+    }
+    .clRight{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 674px){
+    .clLeft, .clCenter{ /* tarjetas abarcar todo el ancho (.clRight ya lo ampara en el anterior bloque) */
+        width: 100%;
+    }
+    #idServicios figure img{
+        width: 100%;
+    }
+    #idLicencia{
+        left: auto;
+        right: -80vw;
+        top: 5vh;
+    }
+}
+
+@media screen and (max-width: 500px){
+    .clBotones{
+        font-size: 10pt;
+    }
+    form{
+        width: 100%;
+    }
+}
+
+@keyframes animacion{ /* animacion por tiempo (del contenedor de las imagenes <figure>) */
+    0%{ /* cambio instantaneo a la 1ra imagen */
+        left: 0;
+    }
+    28.33%{ /* retenerla para que el cambio sea rapido */
+        left: 0;
+    }
+    33.33%{
+        left: -100%;
+    }
+    61.66%{ /* retenerla para que el cambio sea rapido */
+        left: -100%;
+    }
+    66.66%{
+        left: -200%;
+    }
+    94.99%{ /* retenerla para que el cambio sea rapido */
+        left: -200%;
+    }
+    100%{ /* justo un instante antes del 100% mostrar la ultima imagen deslizable e inmediato mostrar la 1ra */
+        left: -300%;
+    }
+}
