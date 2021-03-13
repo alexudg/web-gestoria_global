@@ -198,14 +198,16 @@ article{ /* seccion de tarjetas */
     justify-content: flex-end;
 }
 
+/* imagen licencia */
 #idServicios figure img{
-    max-width: 550px;  
+    max-width: 520px;
+    /* width: 85%;   */
 }
 
 #idLicencia{
     position: relative;
-    top: 40px;
-    left: 420px; 
+    top: 10%;
+    right: -150%;
     width: 260px;
     height: 50px;
     background-color: yellowgreen;
@@ -342,9 +344,7 @@ footer p{
         width: 100%;
     }
     #idLicencia{
-        left: auto;
-        right: -80vw;
-        top: 5vh;
+        width: 38vw;
     }
 }
 
