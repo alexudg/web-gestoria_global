@@ -10,13 +10,18 @@
     /*border: 0.1px solid;*/
 }
 
-/*html{
+html{
     scroll-behavior: smooth; 
-}*/
+}
+
+main {
+    padding: 0 25px;
+}
 
 header{
     background-color: #ddd;
 	height: 75px; /* falta agregar 3px de sombra */
+    padding-left: 10px;
     display: flex; /* hijos alineados en misma fila y auto-ajustados */  
     position: fixed; /* fijar (se recarga a left-top) y se auto-ajusta */
     width: 100%; /* obligar a que abarque toda anchura */
@@ -39,30 +44,27 @@ header{
 }
 
 nav{
-    /*background-color: #555;*/
+    /* background-color: #555; */
     width: 67%;
     display: flex;
-    justify-content: center; /* centrado horizontal */
-    align-items: center; /* centrado vertical */
+    align-items: center; /*centrado vertical*/
+    justify-content: center; /* centrado horizontal*/
 }
 
 nav ul{
-    /*background-color: black;*/
+    /* background-color: black; */
     list-style: none; /* quitar viñetas */
-    margin: 0; /* quitar margen top-bot */
-    padding: 0; /* quitar sangria izq */
-    display: flex; /* alineado en fila y auto-ajusta los hijos */
+    display: flex; /* alineado en fila y auto-ajusta los hijos */   
 }
 
 .clBotones{
     background-color: dodgerblue;
+    font-size: 14pt;
     display: flex; /* permite manipular dimensiones y alineaciones */
-    width: 175px;
-    height: 35px;
-    justify-content: center; /* centrado horizontal */
-    align-items: center; /* centrado vertical */
+    justify-content: center; /* (display:flex) centrado horizontal */
+    padding: 10px 5px;
     color: white;
-    margin: 0 5px;
+    margin-left: 5px;
     border-radius: 10px 10px;
     box-shadow: 3px 3px 3px #333;
     transition: 0.2s ease-in-out;    
@@ -77,8 +79,9 @@ nav ul{
     box-shadow: none;
 }
 
+/* imagen de fondo */
 #idSuperior{
-    background-image: url(src/logo/logoCompleto1280x309.png); /* imagen de fondo */
+    background-image: url('src/logo/logoCompleto1280x309.png'); 
     background-size: contain; /* ajustarla a lo ancho */
     background-repeat: no-repeat; /* no repetirla */
     background-position: center; /* centrada */
@@ -91,6 +94,7 @@ section:not(#idSuperior){ /* todas las secciones excepto la superior */
 }
 
 section h1{
+    /* border: 1px solid red; */
     margin-top: 100px;
     font-size: 24pt;
 }
@@ -229,7 +233,8 @@ article{ /* seccion de tarjetas */
 }
 
 #idDatosContacto img{ /* logo whatsapp */
-    margin-bottom: -5px; /* bajar un poco el logo de whatsapp */
+    margin-bottom: -8px; /* bajar un poco el logo de whatsapp */
+    margin-right: 5px;
 }
 
 #idMapa{
@@ -293,14 +298,14 @@ textarea{ /* evitar que el usuario lo deforme */
 
 #idFacebook{
     position: fixed;
-    left: 35px;
-    bottom: 30px;
+    left: 10px;
+    bottom: 10px;
 }
 
 #idWhatsapp{
     position: fixed;
-    right: 35px;
-    bottom: 30px;
+    right: 10px;
+    bottom: 10px;
 }
 
 footer{
@@ -320,10 +325,6 @@ footer p{
 @media screen and (max-width: 1023px){
     #logo a{
         width: 24vw;
-    }
-    .clBotones{
-        width: 17vw;
-        font-size: 12pt;
     }
     .clLeft, .clCenter{ /* tarjetas: 2 arriba */
         width: 50%; 
@@ -352,7 +353,7 @@ footer p{
         font-size: 10pt;
     }
     form{
-        width: 100%;
+        width: 85%;
     }
 }
 
