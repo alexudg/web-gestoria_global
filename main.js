@@ -33,12 +33,13 @@ function ventanaCargada() {
     btInicio.onclick = btInicioClick;
     btServicios.onclick = btServiciosClick;
     btContacto.onclick = btContactoClick;
+    //setTimeout(btInicioClick, 3000);
     btInicioClick(); // iniciar con click en Inicio
 }
 
 function btInicioClick() {
     //console.log('btInicioClick()');
-    cambiarSeccion(1);
+    cambiarSeccion(1);   
 }
 
 function btServiciosClick() {
@@ -114,6 +115,6 @@ function cambiarSeccion(actual) {
             // volver a mostrar los botones de Facebook y Whatsapp
             btFacebook.style.display = 'block';
             btWhatsapp.style.display = 'block';
-        }, 250);
-    }, 250); 
+        }, 1000);
+    }, 1000); 
 }
