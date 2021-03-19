@@ -10,6 +10,7 @@
     /*border: 0.1px solid;*/
 }
 
+/* desplazamiento vertical suave */
 html{
     scroll-behavior: smooth; 
 }
@@ -108,9 +109,11 @@ section p{
     max-width: 1024px;
     height: 30vw;
     max-height: 300px;
-    border: 1px solid;
-    margin: 20px auto; /* centrarlo */
+    /* border: 1px solid; */
+    margin: 20px auto; /* centrarlo horizontalmente */
     overflow: hidden; 
+    border-radius: 5px;
+    box-shadow: 0 0 6px 3px gray;
 }
 
 #idSlider figure{
@@ -261,25 +264,24 @@ form{
 
 form h2{
     text-align: center;
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
 }
 
 form p{
-    font-size: 14px;
+    /* border: 1px solid black; */
+    font-size: 10pt;
 }
 
 input, textarea{
     width: 100%;
-    margin-bottom: 20px;
+    margin-top: 15px;
     padding: 5px;
     border: none;
 }
 
-textarea{ /* evitar que el usuario lo deforme */
-    min-height: 100px;
-    max-height: 200px;
-    min-width: 100%;
-    max-width: 100%;    
+textarea { 
+    height: 100px;
+    resize: none; /* deshabilitar redimensionar */
 }
 
 #idEnviar{
@@ -297,6 +299,17 @@ textarea{ /* evitar que el usuario lo deforme */
 
 #idEnviar:active{
     box-shadow: none;
+}
+
+/* etiqueta resultado del envio de email */
+.clResult {
+    /* border: 1px solid black; */
+    background-color: lightgreen;
+    /* background-color: salmon; */
+    margin-top: 10px;
+    text-align: center;
+    padding: 5px 0;
+    font-weight: bold;
 }
 
 #idFacebook{

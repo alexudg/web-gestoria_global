@@ -123,7 +123,7 @@
 	        </div>
 	        <div id="idWebAdeudo">
                 <h3>Consulta tu adeudo vehicular</h3>
-	            <iframe src="https://gobiernoenlinea1.jalisco.gob.mx/vehicular/" frameborder="0"></iframe>   
+	            <iframe src="https://gobiernoenlinea1.jalisco.gob.mx/vehicular/" frameborder="0"></iframe> <!-- este frame genera avisos y errores -->  
 	        </div>
 	    </section>
 	    <section id="idContacto" style="display: none">
@@ -145,15 +145,16 @@
 	            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3733.9930964845726!2d-103.2483484854183!3d20.629138206676824!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8428b461ad46c49d%3A0xebe567ca646186ff!2sCalle%20Alberca%20150%2C%20Tonal%C3%A1%20Centro%2C%2045400%20Tonal%C3%A1%2C%20Jal.!5e0!3m2!1ses!2smx!4v1576709903836!5m2!1ses!2smx" frameborder="1">
 	            </iframe>    
 	        </section>
-	        <form method="post" action="send.php">
+	        <form method="post" id="idForm"> <!-- action="send.php" -->
 	            <h2>Escríbenos</h2>
+	            <input type="text" name="nmNombre" placeholder="*Nombre" required>
+	            <input type="email" name="nmCorreo" placeholder="*Correo" required>
+	            <input type="number" name="nmTelefono" placeholder="Whatsapp">
+	            <input type="text" name="nmAsunto" placeholder="Asunto">
+	            <textarea type="text" name="nmMensaje" placeholder="*Mensaje" required></textarea>
 	            <p>*campos obligatorios</p>
-	            <input type="text" name="nmNombre" placeholder="NOMBRE*" required>
-	            <input type="email" name="nmCorreo" placeholder="CORREO*" required>
-	            <input type="tel" name="nmWhatsapp" placeholder="WHATSAPP">
-	            <input type="text" name="nmAsunto" placeholder="ASUNTO">
-	            <textarea type="text" name="nmMensaje" placeholder="MENSAJE*" required></textarea>
-	            <input type="submit" id="idEnviar" value="ENVIAR">
+	            <input type="submit" id="idEnviar" value="Enviar">
+				<p class="clResult">Result</p>
 	        </form>	        
 	    </section>	
 	</main>
@@ -171,5 +172,6 @@
         </p>
 	</footer>	
 </body>
-<script type="text/javascript" src="main.js"></script>
+<script src="main.js"></script>
+<script src="smtp.js"></script>
 </html>

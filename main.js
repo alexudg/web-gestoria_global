@@ -88,13 +88,11 @@ function cambiarSeccion(actual) {
         case 3:
             btContacto.style.backgroundColor = 'darkblue';
             contacto.style.display = 'block';
-            // aqui no tiene case el break
+            // aqui no tiene caso el break
     }
     
     // tiempo para que logre subir suavemente la seccion
     window.setTimeout(function () {
-        document.getElementsByTagName('html')[0].setAttribute('style', 'scroll-behavior: smooth'); // desplazamiento suave
-        
         switch (seccion) {
             case 1:
                 location.href = '#idInicio';
@@ -106,7 +104,6 @@ function cambiarSeccion(actual) {
                 location.href = '#idContacto';
                 break;
         }
-        document.getElementsByTagName('html')[0].setAttribute('style', 'scroll-behavior: none'); // restaurar desplazamiento instantaneo
         
         window.setTimeout(function () {
             superior.setAttribute('style', 'height: 0');
@@ -117,4 +114,27 @@ function cambiarSeccion(actual) {
             btWhatsapp.style.display = 'block';
         }, 1000);
     }, 1000); 
+
+    idForm.onsubmit = (eve) => {
+        eve.preventDefault()
+        //console.log(idForm.nmNombre.value)
+
+        // smtp.js
+        Email.send({
+            Host: 'smtp.gmail.com',
+            Username: 'puntoplanet@gmail.com',
+            Password: 'Jalisco01',
+            To: 'puntoplanet@gmail.com',
+            From: 'puntoplanet@gmail.com',
+            Subject: 'Web de Gestoria Global',
+            Body: 'De: ' + idForm.nmNombre.value + '<br/>' +
+                  'Correo: ' + idForm.nmCorreo.value + '<br/>' +
+                  'Whatsapp: ' + idForm.nmTelefono.value + '<br/>' +
+                  'Asunto: ' + idForm.nmAsunto.value + '<br/>' +
+                  '<hr/>' +
+                  idForm.nmMensaje
+        }).then(
+            message => alert(message)
+        )
+    }
 }
