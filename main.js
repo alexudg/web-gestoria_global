@@ -1,41 +1,34 @@
-/*global window, document, location*/
+let seccion = 1;
 
-var superior, inicio, servicios, contacto;
-var btInicio, btServicios, btContacto, btFacebook, btWhatsapp;
-var seccion = 1;
+// instanciar secciones
+const superior = document.getElementById('idSuperior');
+const inicio = document.getElementById('idInicio');
+const servicios = document.getElementById('idServicios');
+const contacto = document.getElementById('idContacto');
 
-window.onload = ventanaCargada;
+// instanciar botones del menu
+const btInicio = document.getElementById('btInicio');
+const btServicios = document.getElementById('btServicios');
+const btContacto = document.getElementById('btContacto');
 
-function ventanaCargada() {
-    //console.log('ventanaCargada()');
+// instanciar los botones de Facebook y Whatsapp
+const btFacebook = document.getElementById('idFacebook');
+const btWhatsapp = document.getElementById('idWhatsapp');
 
-    // instanciar secciones
-    superior = document.getElementById('idSuperior');
-    inicio = document.getElementById('idInicio');
-    servicios = document.getElementById('idServicios');
-    contacto = document.getElementById('idContacto');
 
-    // ocultar todas las secciones excepto 'superior'
-    inicio.setAttribute('style', 'display: none');
-    servicios.setAttribute('style', 'display: none');
-    contacto.setAttribute('style', 'display: none');
+// ocultar todas las secciones excepto 'superior'
+inicio.setAttribute('style', 'display: none');
+servicios.setAttribute('style', 'display: none');
+contacto.setAttribute('style', 'display: none');
 
-    // instanciar botones del menu
-    btInicio = document.getElementById('btInicio');
-    btServicios = document.getElementById('btServicios');
-    btContacto = document.getElementById('btContacto');
-    
-    // instanciar los botones de Facebook y Whatsapp
-    btFacebook = document.getElementById('idFacebook');
-    btWhatsapp = document.getElementById('idWhatsapp');
 
-    // agregar funciones al evento click de cada boton
-    btInicio.onclick = btInicioClick;
-    btServicios.onclick = btServiciosClick;
-    btContacto.onclick = btContactoClick;
-    //setTimeout(btInicioClick, 3000);
-    btInicioClick(); // iniciar con click en Inicio
-}
+// agregar funciones al evento click de cada boton
+btInicio.onclick = btInicioClick;
+btServicios.onclick = btServiciosClick;
+btContacto.onclick = btContactoClick;
+//setTimeout(btInicioClick, 3000);
+btInicioClick(); // iniciar con click en Inicio
+
 
 function btInicioClick() {
     //console.log('btInicioClick()');
@@ -112,13 +105,19 @@ function cambiarSeccion(actual) {
             // volver a mostrar los botones de Facebook y Whatsapp
             btFacebook.style.display = 'block';
             btWhatsapp.style.display = 'block';
-        }, 1000);
+        }, 500);
     }, 1000); 
 
     idForm.onsubmit = (eve) => {
         eve.preventDefault()
         //console.log(idForm.nmNombre.value)
 
+        // deshabilitar boton Enviar
+        const color = idEnviar.style.backgroundColor
+        idEnviar.style.backgroundColor = 'silver'
+        idEnviar.disable = true
+        idEnviar.value = "Espera..."
+        
         // smtp.js
         Email.send({
             Host: 'smtp.gmail.com',
@@ -132,9 +131,26 @@ function cambiarSeccion(actual) {
                   'Whatsapp: ' + idForm.nmTelefono.value + '<br/>' +
                   'Asunto: ' + idForm.nmAsunto.value + '<br/>' +
                   '<hr/>' +
-                  idForm.nmMensaje
+                  idForm.nmMensaje.value
         }).then(
-            message => alert(message)
+            message => {
+                idForm.reset()
+                if (message == 'OK') {
+                    idResultado.innerHTML = "Mensaje enviado!"
+                    idResultado.style.backgroundColor = "lightgreen"
+                }
+                else {
+                    idResultado.innerHTML = "Error en enviar mensaje"
+                    idResultado.style.backgroundColor = "salmon"
+                }
+                idResultado.style.display = "block"
+                setTimeout(() => {
+                    idResultado.style.display = "none"
+                    idEnviar.disable = false
+                    idEnviar.value = "Enviar"
+                    idEnviar.style.backgroundColor = color
+                }, 6000)
+            }
         )
     }
 }

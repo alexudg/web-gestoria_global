@@ -302,7 +302,7 @@ textarea {
 }
 
 /* etiqueta resultado del envio de email */
-.clResult {
+.clResultado {
     /* border: 1px solid black; */
     background-color: lightgreen;
     /* background-color: salmon; */
@@ -310,6 +310,7 @@ textarea {
     text-align: center;
     padding: 5px 0;
     font-weight: bold;
+    display: none;
 }
 
 #idFacebook{
