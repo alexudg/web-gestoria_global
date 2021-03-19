@@ -105,7 +105,7 @@ function cambiarSeccion(actual) {
             // volver a mostrar los botones de Facebook y Whatsapp
             btFacebook.style.display = 'block';
             btWhatsapp.style.display = 'block';
-        }, 500);
+        }, 1000);
     }, 1000); 
 
     idForm.onsubmit = (eve) => {
